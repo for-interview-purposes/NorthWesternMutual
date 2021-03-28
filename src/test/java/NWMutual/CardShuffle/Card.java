@@ -1,5 +1,8 @@
 package NWMutual.CardShuffle;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Card {
 
     static final int totalNumOfCardsInADeck = 52;
@@ -18,6 +21,18 @@ public class Card {
     public String toString(){
         return rankOfACard + " " + suitOfACard;
     }
+
+    static final List<Card> InitialDeck = new ArrayList<>();
+
+    static {
+        for (SuitOfACard suit : SuitOfACard.values()){
+            for (RankOfACard rank : RankOfACard.values()) {
+                InitialDeck.add(new Card(rank, suit));
+            }
+        }
+    }
+
+
 
 
 
