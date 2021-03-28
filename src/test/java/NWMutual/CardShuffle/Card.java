@@ -32,8 +32,24 @@ public class Card {
         }
     }
 
+    public static ArrayList<Card> newDeck(){
+        return new ArrayList<Card>(InitialDeck);
+    }
 
+    public static ArrayList<Card> dealingTheDeck(List<Card> deckForAGame, int numOfPlayers){
 
+        int deckSize = deckForAGame.size();
+
+        int cardsPerPlayer = totalNumOfCardsInADeck/numOfPlayers;
+
+        List<Card> dealingFromDeck = deckForAGame.subList( (deckSize-cardsPerPlayer) , deckSize);
+
+        ArrayList<Card> onPlayerHand = new ArrayList<Card>(dealingFromDeck);
+
+        dealingFromDeck.clear();
+
+        return onPlayerHand;
+    }
 
 
 
