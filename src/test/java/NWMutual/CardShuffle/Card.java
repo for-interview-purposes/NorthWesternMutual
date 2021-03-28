@@ -15,4 +15,12 @@ public class Card {
         this.suitOfACard = suitOfACard;
     }
 
+    public String toString(){
+        return rankOfACard + " " + suitOfACard;
+    }
+
+
+
+
+
 }
