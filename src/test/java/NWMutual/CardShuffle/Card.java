@@ -1,7 +1,6 @@
 package NWMutual.CardShuffle;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Card {
 
@@ -54,9 +53,27 @@ public class Card {
 
     public static void main(String[] args) {
 
+        System.out.println(InitialDeck);
 
+        System.out.println("Please specify the number of players: ");
 
+        Scanner scan = new Scanner(System.in);
 
+        int numOfPlayers = scan.nextInt();
+
+        while (numOfPlayers < 2 || numOfPlayers > 24) {
+
+            System.out.println("Number of players must be more than 1 and less than/or equal to 23. \nPlease specify the number of players: ");
+            numOfPlayers = scan.nextInt();
+        }
+
+        List<Card> deckForAGame = newDeck();
+
+        Collections.shuffle(deckForAGame);
+
+        for (int i = 1; i <=numOfPlayers; i++){
+            System.out.println("Cards for Player " + i + " are " + dealingTheDeck(deckForAGame, numOfPlayers));
+        }
 
     }
 
