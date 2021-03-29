@@ -13,7 +13,7 @@ public class Card {
     public enum RankOfACard{ Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King}
     public enum SuitOfACard {Clubs, Diamonds, Hearts, Spades}
 
-    // Instance variable of Card class objects
+    // Instance variable of Card class objects created
     private final RankOfACard rankOfACard;
     private final SuitOfACard suitOfACard;
 
@@ -32,7 +32,7 @@ public class Card {
         return rankOfACard + " " + suitOfACard;
     }
 
-    // We declare and initialize an array for the object of Card class
+    // We declare and initialize an array for the objects of Card class
     // We use List interface as this is a good practise - in case in the future a different
     // implementation of the List interface will need to be used
     // i.e. LinkedList or Vector
@@ -49,6 +49,7 @@ public class Card {
     }
 
     // Method returns copy of Initial deck for further shuffle and dealing
+    // Initial deck shall be unchangeable
     public static ArrayList<Card> newDeck(){
         return new ArrayList<Card>(InitialDeck);
     }
@@ -66,7 +67,7 @@ public class Card {
         // The result must be a whole number
         int cardsPerPlayer = totalNumOfCardsInADeck/numOfPlayers;
 
-        // For dsitributing cards to a Player a sublist method with 2 parameters is used:
+        // For distributing cards to a Player a sublist method with 2 parameters is used:
         // 1. Initial index for a Card object in the list
         // 2. Last index of a Card object in the list
         // Thus, Card-objects are distributed/dealt starting from the last Card-object in the list
@@ -78,7 +79,7 @@ public class Card {
         // The ArrayList is cleared for distributing the Card to a next player
         dealingFromDeck.clear();
 
-        // Method "dealingTheDeck" returns the cards distributed to this specific player
+        // Method "dealingTheDeck" returns the array of Card-objects distributed to this specific player
         return onPlayerHand;
     }
 
